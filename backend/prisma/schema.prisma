@@ -29,9 +29,3 @@ model Product {
   price   Float
   orders  Order[]  @relation("OrderProducts")
 }
-
-enum Role {
-  USER
-  EDITOR
-  ADMIN
-}
