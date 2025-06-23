@@ -4,11 +4,18 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 const app = express();
-const path = require('path');
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+console.log('__dirname is:', __dirname);
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '/frontend/src')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 app.get('/api/data', async (req, res) => {
   try {

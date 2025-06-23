@@ -1,4 +1,4 @@
-const dataContainer = document.querySelector('html');
+const dataContainer = document.getElementById('data-container');
 
 async function fetchAndDisplayData() {
     try {
@@ -25,17 +25,6 @@ async function fetchAndDisplayData() {
 
 // Create HTML for the data
         const html = `
-            <!doctype html>
-            <html lang="en">
-              <head>
-                <meta charset="UTF-8" />
-                <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-                <link rel="stylesheet" href="/frontend/src/style.css">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Client Orders</title>
-            </head>
-            <body>
-                <h1>Client Order History</h1>
                 ${data.map(client => `
                     <div class="client-card">
                         <h2>${client.name}</h2>
