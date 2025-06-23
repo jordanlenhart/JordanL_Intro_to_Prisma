@@ -4,7 +4,15 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 const app = express();
-const path = require('path');
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Get current file path
+const __filename = fileURLToPath(import.meta.url);
+
+// Get current directory path
+const __dirname = path.dirname(__filename);
 
 app.use(cors());
 app.use(express.json());

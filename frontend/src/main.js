@@ -1,4 +1,4 @@
-const dataContainer = document.querySelector('html');
+const dataContainer = document.getElementById('data-container');
 
 async function fetchAndDisplayData() {
     try {
@@ -25,49 +25,38 @@ async function fetchAndDisplayData() {
 
 // Create HTML for the data
         const html = `
-            <!doctype html>
-            <html lang="en">
-              <head>
-                <meta charset="UTF-8" />
-                <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-                <link rel="stylesheet" href="/frontend/src/style.css">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Client Orders</title>
-            </head>
-            <body>
-                <h1>Client Order History</h1>
-                ${data.map(client => `
-                    <div class="client-card">
-                        <h2>${client.name}</h2>
-                        <p><strong>ID:</strong> ${client.id}</p>
-                        <p><strong>Email:</strong> ${client.email}</p>
+            ${data.map(client => `
+                <div class="client-card">
+                    <h2>${client.name}</h2>
+                    <p><strong>ID:</strong> ${client.id}</p>
+                    <p><strong>Email:</strong> ${client.email}</p>
 
-                        <table>
-                            <thead>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Products</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        ${client.orders.map(order => `
                             <tr>
-                                <th>Order ID</th>
-                                <th>Date</th>
-                                <th>Products</th>
+                            <td>${order.id}</td>
+                            <td>${new Date(order.date).toLocaleDateString()}</td>
+                            <td>
+                                <ul class="product-list">
+                                ${order.products.map(product => `
+                                    <li>${product.name} ($${product.price})</li>
+                                `).join('')}
+                                </ul>
+                            </td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            ${client.orders.map(order => `
-                                <tr>
-                                <td>${order.id}</td>
-                                <td>${new Date(order.date).toLocaleDateString()}</td>
-                                <td>
-                                    <ul class="product-list">
-                                    ${order.products.map(product => `
-                                        <li>${product.name} ($${product.price})</li>
-                                    `).join('')}
-                                    </ul>
-                                </td>
-                                </tr>
-                            `).join('')}
-                            </tbody>
-                        </table>
-                        </div>
-                 </body>
+                        `).join('')}
+                        </tbody>
+                    </table>
+                    </div>
+                </body>
             `).join('')}
         `;
 
