@@ -1,0 +1,3 @@
+DROP TABLE User;
+DROP TABLE Post;
+DROP TABLE Comment;
