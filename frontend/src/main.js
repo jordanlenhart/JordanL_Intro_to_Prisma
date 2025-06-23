@@ -25,19 +25,11 @@ async function fetchAndDisplayData() {
 
 // Create HTML for the data
         const html = `
-<<<<<<< HEAD
             ${data.map(client => `
                 <div class="client-card">
                     <h2>${client.name}</h2>
                     <p><strong>ID:</strong> ${client.id}</p>
                     <p><strong>Email:</strong> ${client.email}</p>
-=======
-                ${data.map(client => `
-                    <div class="client-card">
-                        <h2>${client.name}</h2>
-                        <p><strong>ID:</strong> ${client.id}</p>
-                        <p><strong>Email:</strong> ${client.email}</p>
->>>>>>> fa892a865c5a807bb3d171ba1e5906c7b70fd4ce
 
                     <table>
                         <thead>

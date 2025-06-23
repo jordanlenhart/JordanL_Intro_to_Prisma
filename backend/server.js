@@ -8,18 +8,11 @@ const app = express();
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-<<<<<<< HEAD
 // Get current file path
 const __filename = fileURLToPath(import.meta.url);
 
 // Get current directory path
 const __dirname = path.dirname(__filename);
-=======
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-console.log('__dirname is:', __dirname);
->>>>>>> fa892a865c5a807bb3d171ba1e5906c7b70fd4ce
 
 app.use(cors());
 app.use(express.json());
